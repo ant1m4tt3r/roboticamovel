@@ -9,3 +9,5 @@ Exemplo:
 - Desafio 1/desafio_1.py
 - Desafio 2/desafio_2.py
 - Servidor Flask/(app.py | templates | config.json)
+
+Ao editar algum projeto do repositório, dê preferência por criar uma nova branch com as suas alterações e submeter um Pull Request para a branch principal (master). Caso este método não seja adotado ou por motivos de simplicidade as alterações forem realizadas diretamente na branch master, alertar aos demais membros da equipe sobre as mudanças.
