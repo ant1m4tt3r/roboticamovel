@@ -33,7 +33,6 @@ def animate(i,data,pos,clear):
 
 
 
-
 # Normaliza
 def normalizer(arr):
     norm = np.linalg.norm(arr)
