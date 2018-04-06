@@ -104,7 +104,7 @@ def calc_module(arr):
 
 if __name__ == '__main__':
     p0 = np.array([0, 0])
-    pf = np.array([10, 10])
+    pf = np.array([8, 8])
     ta = 0
     v =  1
     ts = 2

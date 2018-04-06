@@ -51,7 +51,7 @@ if __name__ == '__main__':
  [  1.42302495 ,  4.26907484],
  [  1.54161036 ,  4.62483108],
  [  1.66019577 ,  4.98058731]])
-
+  
   Ts = 100 #ms
   #função para fazer animação
   ani = FuncAnimation(fig, animate, np.arange(1, len(pose)), fargs=(data,pose,True),interval=Ts, repeat=False) 
