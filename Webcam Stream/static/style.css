@@ -1,0 +1,22 @@
+body, html {
+  margin: 0;
+  background-color: #f3f1f1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card {
+  width: 80%;
+}
+
+#matches {
+  list-style: none; /* Remove list bullets */
+  padding: 0;
+  margin: 0;
+}
+
+#matches li {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}

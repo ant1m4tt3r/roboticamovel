@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reconhecimento de webcam</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Reconhecimento de Imagem</h1>
+    <div class="row">
+      <div class="col-md-7 col-sm-12">
+        <div class="card">
+          <img class="card-img-top" src="{{ url_for('video_feed', source=0) }}" alt="Webcam Image">
+          <div class="card-body">
+            <h5 class="card-title">Reconhecimento de Imagem</h5>
+            <p class="card-text">Para começar o reconhecimento de imagem, clique em
+              <b>Começar Reconhecimento</b>.</p>
+            <a id="commander" stop="false" href="#" class="btn btn-primary">Começar Reconhecimento</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-sm-12">
+        <h3 id="matches-title"></h3>
+        <ul id="matches"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="static/main.js"></script>
+
+</body>
+
+</html>
