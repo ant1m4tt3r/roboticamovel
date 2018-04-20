@@ -1,0 +1,16 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/indigo/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/aulas/ws_roboticamovel/src/aula2/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

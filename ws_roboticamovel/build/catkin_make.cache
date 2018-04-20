@@ -1,0 +1,2 @@
+aula2
+-DCATKIN_DEVEL_PREFIX=/home/hugo/UFOP_Ubuntu/robotica_movel/aulas/ws_roboticamovel/devel -DCMAKE_INSTALL_PREFIX=/home/hugo/UFOP_Ubuntu/robotica_movel/aulas/ws_roboticamovel/install -G Unix Makefiles
