@@ -11,3 +11,7 @@ Exemplo:
 - Servidor Flask/(app.py | templates | config.json)
 
 Ao editar algum projeto do repositório, dê preferência por criar uma nova branch com as suas alterações e submeter um Pull Request para a branch principal (master). Caso este método não seja adotado ou por motivos de simplicidade as alterações forem realizadas diretamente na branch master, alertar aos demais membros da equipe sobre as mudanças.
+
+Sempre que adicionar uma nova dependencia, adicionar na documentação da pasta relacionada ao código para facilitar aos demais colaboradores a utilização do que foi desenvolvido.
+
+Os layouts utilizados para o aplicativo estão sendo desenvolvidos com o AdobeXD (EXtreme Design). Layouts, imagens e afins estarão localizados na pasta 'assets' que se encontra na raiz do repositório.
