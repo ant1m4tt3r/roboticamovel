@@ -1,8 +1,0 @@
-prefix=/home/hugo/UFOP_Ubuntu/robotica_movel/aulas/ws_roboticamovel/devel
-
-Name: aula2
-Description: Description of aula2
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/hugo/UFOP_Ubuntu/robotica_movel/aulas/ws_roboticamovel/devel/lib 
-Requires: 

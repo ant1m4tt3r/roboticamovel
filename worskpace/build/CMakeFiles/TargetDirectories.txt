@@ -1,0 +1,7 @@
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/CMakeFiles/clean_test_results.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/CMakeFiles/download_extra_data.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/CMakeFiles/doxygen.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/gtest/CMakeFiles/gtest.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/gtest/CMakeFiles/gtest_main.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/CMakeFiles/run_tests.dir
+/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/build/CMakeFiles/tests.dir
