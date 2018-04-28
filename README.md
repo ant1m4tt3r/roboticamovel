@@ -7,6 +7,8 @@ Membros:
 - Marlon Martins
 - Oscar Cândido
 
+![alt text](https://omelete.com.br/filmes/artigo/vingadores-guerra-infinita-thanos-se-considera-um-benfeitor-diz-dublador-do-vilao/)
+
 ## Bibliotecas e APIS
 Para a utilização dos códigos, é necessário ter instalado Python >= 3.5 e as seguintes bibliotecas:
 - Numpy (http://www.numpy.org/)
