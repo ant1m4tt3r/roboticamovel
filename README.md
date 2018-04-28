@@ -1,4 +1,11 @@
 # Repositório da Equipe 5 da disciplina de Robótica Móvel.
+Repositório de códigos utilizados e desenvolvidos pela Equipe 5 (Thanos) da disciplina de Robótica Móvel (18.1).
+Membros:
+- Hugo Azevedo
+- Diego Carneiro
+- Hamilton Tonidandel
+- Marlon Martins
+- Oscar Cândido
 
 ## Bibliotecas e APIS
 Para a utilização dos códigos, é necessário ter instalado Python >= 3.5 e as seguintes bibliotecas:
