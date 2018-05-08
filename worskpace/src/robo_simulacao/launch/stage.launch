@@ -35,8 +35,8 @@
         DEBUG: 1
         RATE: 20
         USING_NOISE: 1
-        GAINX: 0.5
-        GAINY: 0.1
+        GAINX: 0.01
+        GAINY: 0.01
         </rosparam>
     </node>
    
