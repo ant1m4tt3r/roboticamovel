@@ -1,0 +1,139 @@
+define sicklaser ranger
+(
+    sensor
+    (  
+    range [ 0.0 15.0 ]
+    #range_max 8.10000038147    
+    #range_max 15.0   
+    #fov 180.0
+    fov 220.0
+    #fov 270.0
+    #samples 540
+    #samples 360
+    samples 440
+    )
+    block
+    (
+    points 4
+    point[0] [0 0]
+    point[1] [0 0.156]
+    point[2] [0.155 0.156]
+    point[3] [0.155 0]
+    z [0 0.19]
+    )
+    color "blue"
+    #pose [0.35 0.0 0.26 0]
+    size [ 0.156 0.155 0.190 ]
+    
+    
+)
+
+define body model
+(
+  size [0.350 0.350 1.500]
+  gui_nose 0
+)
+
+define legs model
+(
+  size [0.300 0.250 0.500]
+  gui_nose 0
+)
+
+
+
+define pioneer position
+(
+#size [0.630 0.497 0.260]
+size [0.60 0.4 0.20]
+  block
+(
+    points 4 
+    point[3] [0 0]
+    point[2] [0 0.4]
+    point[1] [0.6 0.4]
+    point[0] [0.6 0]
+    z [0 0.2]
+)
+  sicklaser(pose [ 0.0 0.000 0.000 0.000]
+	    #ctrl "lasernoise"
+	    )
+  
+  gui_nose 1
+  drive "omni"
+  
+  # odometry error model parameters, 
+    # only used if localization is set to "odom"
+    #odom_error [0.03 0.03 0.00 0.05]
+  )
+
+  
+
+  
+  
+define floorplan model
+(
+  # sombre, sensible, artistic
+  color "gray30"
+
+  # most maps will need a bounding box
+  boundary 1
+
+  gui_nose 0
+  gui_grid 0
+  gui_move 0
+  gui_outline 0
+  gripper_return 0
+  fiducial_return 0
+  laser_return 1
+)
+
+floorplan
+( 
+#carrega o mapa
+  name "corridor_map"
+  bitmap "eng_true_corridor_more.pgm"
+  #bitmap "world.png"
+   size [57.000 50.000 4.000] 
+   #size [100.000 100.000 4.000]
+   pose [0.000  0.000 0.000 0.000 ]
+)
+
+# set the resolution of the underlying raytrace model in meters
+resolution 0.05
+
+interval_sim 50  # simulation timestep in milliseconds
+
+window
+( 
+#janela
+  size [1301 744] 
+  rotate [ 0.000 90.000 ]
+  scale 23.581      #scale of zoom at the start
+  center [ -14.606  1.431 ]           
+  show_data 1              # 1=on 0=off
+)
+
+# throw in a robot
+
+pioneer( 
+  pose [ -26.884 -1.742 0.000 90.000 ] #this pose is: [ x y z rotation]
+  name "mybot_omni" 
+  color "green"
+  
+  
+  ) 
+  
+
+  
+
+#body( pose [ -25.347 12.301 0.500 0.000 ] color "green")
+legs( pose [ 27.220 8.143 0.000 0.000 ] color "green")
+legs( pose [ -17.847 -20.821 0.000 0.000 ] color "green")
+legs( pose [ -23.201 -21.335 0.000 0.000 ] color "green")
+legs( pose [ 27.222 -7.906 0.000 0.000 ] color "green")
+legs( pose [ 23.071 -20.498 0.000 -136.572 ] color "green")
+legs( pose [ 3.429 -21.774 0.000 0.000 ] color "green")
+legs( pose [ 14.014 -20.800 0.000 0.000 ] color "green")
+legs( pose [ 26.255 11.587 0.000 0.000 ] color "green")
+

@@ -1,0 +1,8 @@
+prefix=/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/devel
+
+Name: robo_simulacao
+Description: Description of robo_simulacao
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/devel/lib 
+Requires: 

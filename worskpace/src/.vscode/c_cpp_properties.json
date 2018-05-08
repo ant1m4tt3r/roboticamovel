@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/indigo/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/src/robo_simulacao/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/worskpace/src/turtle/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

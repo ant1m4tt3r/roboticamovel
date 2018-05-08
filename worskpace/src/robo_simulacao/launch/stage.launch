@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <param name="use_sim_time" value="true" /> <!-- This is necessary to sync the simulation -->
+    
+    <node pkg="robo_simulacao" type="path_controller.py" name="path_controller" required="true"  output="screen">
+        <rosparam>         
+        TOPIC_ODOM_SUB: "/odom"
+        TOPIC_VEL_PUB: "/cmd_vel"      
+        DEBUG: 1
+        RATE: 20        
+        MAX_VEL: 1.0
+        MAX_NORM_ERROR: 0.1
+        D: 0.5
+        CONTROL_TYPE: "FEEDBACK" 
+        <!--CONTROL_TYPE: "OMINI" -->
+        waypoints: [[1,0,0],[2,0.0,0],[3,0.5,0],[4,0,0],[5,0.0,0],[6,0.5,0],[10,0,0], [20,0,0],[23.5,0,0], [24,-24.5,0], [-4.2,-25,0], [-4.2,0,0], [1,0,0]]
+        REPEAT: 10
+        </rosparam>
+    </node>
+    
+    
+    
+       <!--simulator--> <!--corredor_omni-->
+    <node pkg="stage_ros" type="stageros" name="stage" args="$(find robo_simulacao)/launch/corredor.world"    required="true" >  
+        
+        <remap from="odom" to="robot_0/odom" /> 
+        
+    </node>
+    
+    <node pkg="robo_simulacao" type="sum_noise.py" name="noise"  output="screen">
+        <rosparam>         
+        TOPIC_ODOM_SUB: "/robot_0/odom"
+        TOPIC_ODOM_PUB: "/odom"      
+        DEBUG: 1
+        RATE: 20
+        USING_NOISE: 1
+        GAINX: 0.5
+        GAINY: 0.1
+        </rosparam>
+    </node>
+   
+</launch>
