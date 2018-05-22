@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Turtlesim Node--> 
+    
+
+    <node pkg="thanos" type="leitura_encoder.py" name="leitura_encoder" output="screen" />
+    <node pkg="thanos" type="ler_velocidade.py" name="ler_velocidade" output="screen"/>
+</launch>

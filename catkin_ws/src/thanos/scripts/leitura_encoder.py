@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 import time
 import math
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import String, Float64
 import numpy as np
 # from nav_msgs.msg import Odometry
 # from geometry_msgs.msg import Twist, Pose2D
@@ -17,49 +17,52 @@ import numpy as np
 
 GPIO.setmode(GPIO.BOARD)
 
-Pin_encoder = 7
-Pin_ponteH = 13
+pin_encoder = 7
+pin_ponte_h = 13
 
-Pulsos = 0
+pulsos = 0
 
-Pulsos_por_volta = 20
+pulsos_por_volta = 20
 
 raio_roda = 0.032  # em metros
-tempo_inicial = 0
-tempo_final = 0
+tempo_inicial = 0.0
+tempo_final = 0.0
 
-GPIO.setup(Pin_encoder, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(Pin_ponteH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(pin_encoder, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(pin_ponte_h, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 def pulsos_encoder(channel):
-    Pulsos += 1
+    global pulsos
+    pulsos += 1
 
 
 def calcula_velocidade_angular():
+    global tempo_final
+    global tempo_inicial
+    global pulsos
+    global pulsos_por_volta
 
-    if (rospy.get_time() - tempo_inicial >= rate):
+    tempo_final = float(round(time.time() * 1000))
 
-        tempo_final = rospy.get_time()
-        velocidade_angular = 2 * math.pi() * (Pulsos / Pulsos_por_volta) / \
-            (tempo_final - tempo_inicial)
-        Pulsos = 0
-        tempo_inicial = rospy.get_time()
+    part_one = 2.0 * math.pi
+    part_two = float(pulsos) / float(pulsos_por_volta)
+    part_three = (tempo_final - tempo_inicial) / 1000.0
 
+    velocidade_angular = part_one * part_two / part_three
+
+    pulsos = 0
+
+    tempo_inicial = float(round(time.time() * 1000))
     return velocidade_angular * sentido_rotacao()  # conferir isso
 
 
 def sentido_rotacao():
-
-    sentido = GPIO.input(Pin_ponteH)
+    sentido = GPIO.input(pin_ponte_h)
     if sentido:
         return 1
     else:
         return -1
-
-
-GPIO.add_event_detect(Pin_encoder, GPIO.FALLING,
-                      callback=pulsos_encoder, bouncetime=1)
 
 
 if __name__ == '__main__':
@@ -67,10 +70,13 @@ if __name__ == '__main__':
     try:
         rospy.init_node('leitura_encoder')
         rate = rospy.Rate(10)
-        pub = rospy.Publisher('velocidade_encoder', float)
+        pub = rospy.Publisher('velocidade_encoder', Float64, queue_size=1)
+
+        GPIO.add_event_detect(pin_encoder, GPIO.FALLING,
+                              callback=pulsos_encoder, bouncetime=1)
 
         while not rospy.is_shutdown():
-            velocidade = Float()
+            velocidade = Float64()
             velocidade.data = calcula_velocidade_angular()
             pub.publish(velocidade)
             rate.sleep()
