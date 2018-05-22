@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Turtlesim Node--> 
+    
+
+    <node pkg="encoder" type="leitura_encoder.py" name="leitura_encoder" />
+    <node pkg="encoder" type="ler_velocidade.py" name="ler_velocidade" output="screen"/>
+</launch>
