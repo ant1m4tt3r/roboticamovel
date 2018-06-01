@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <node pkg="thanos" type="leitura_encoder.py" name="leitura_encoder_esquerdo" output="screen" >
+        <rosparam>
+        NUMERO_FAIXAS_ENCODER: 20
+        PINO_ENCODER: 7
+        PINO_PONTE_H: 13
+        RATE: 3 <!--Taxa de amostragem ROS -->
+	    ALPHA: 4 <!--Intensidade do filtro -->
+        TOPIC_VEL: "velocidade_roda_esquerda" 
+        </rosparam >
+    </node>
+     <node pkg="thanos" type="leitura_encoder.py" name="leitura_encoder_direito" output="screen" >
+        <rosparam>
+        NUMERO_FAIXAS_ENCODER: 20
+        PINO_ENCODER: 11
+        PINO_PONTE_H: 16
+        RATE: 3 <!--Taxa de amostragem ROS -->
+	    ALPHA: 4 <!--Intensidade do filtro -->
+        TOPIC_VEL: "velocidade_roda_direita" 
+        </rosparam >
+    </node>
+    <node pkg="thanos" type="ler_velocidade.py" name="ler_velocidade" output="screen"/>
+</launch>
+
