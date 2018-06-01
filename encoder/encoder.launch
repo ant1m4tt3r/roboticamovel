@@ -22,5 +22,12 @@
         </rosparam >
     </node>
     <node pkg="thanos" type="ler_velocidade.py" name="ler_velocidade" output="screen"/>
+    <node pkg="thanos" type="odometro.py" name="odometro" output="screen">
+        <rosparam>
+        TEMPO_DE_AMOSTRAGEM: 20
+        RAIO_DAS_RODAS: 0.035
+        DIST_ENTRE_RODAS: 10
+        </rosparam>
+    </node>
 </launch>
 
