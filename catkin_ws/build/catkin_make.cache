@@ -1,2 +1,2 @@
-demos/fiducial_follow
--DCATKIN_DEVEL_PREFIX=/home/ubuntu/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ubuntu/catkin_ws/install -G Unix Makefiles
+demos/fiducial_follow:led_blinker:thanos:thanos2
+-DCATKIN_DEVEL_PREFIX=/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/install -G Unix Makefiles

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "fiducial_follow"
-PROJECT_SPACE_DIR = "/home/ubuntu/catkin_ws/install"
+PROJECT_SPACE_DIR = "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/install"
 PROJECT_VERSION = "0.0.0"

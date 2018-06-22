@@ -7,7 +7,9 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/ubuntu/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export PWD="/home/ubuntu/catkin_ws/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/ubuntu/catkin_ws/devel/share/common-lisp"
-export ROS_PACKAGE_PATH="/home/ubuntu/catkin_ws/src:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/devel:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/devel/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PWD="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/build"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/src:$ROS_PACKAGE_PATH"
