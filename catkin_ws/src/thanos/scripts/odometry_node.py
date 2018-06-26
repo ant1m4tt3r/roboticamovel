@@ -3,13 +3,12 @@
 # encoding: UTF-8
 
 import math
-import numpy as np
 import rospy
 import tf
 from std_msgs.msg import Float64
 from nav_msgs.msg import Odometry
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 
-# variáveis globais
 
 
 class Odometer():
@@ -38,7 +37,6 @@ class Odometer():
         return self.current_position
 
     # w = (right_wheel_speed + left_wheel_speed) * wheel_radius /
-    # wheels_distance
     def get_angular_speed():
         return (self.right_wheel_speed + self.left_wheel_speed) * self.__wheel_radius / self.__wheels_dist
 
@@ -89,11 +87,9 @@ if __name__ == '__main__':
 
         while not rospy.is_shutdown():
 
-            rate.sleep()
-
             odom = Odometry()
             odom.header.stamp = rospy.Time.now()
-            odom.header.frame_id = "odom"
+            odom.header.frame_id = 'odom'
 
             odom_quat = tf.transformations.quaternion_from_euler(0, 0, angle)
 
@@ -102,18 +98,18 @@ if __name__ == '__main__':
                 Point(current_position[0], current_position[1], 0.), Quaternion(*odom_quat))
 
             # set the velocity
-            odom.child_frame_id = "base_link"
+            odom.child_frame_id = 'base_link'
             odom.twist.twist = Twist(
                 Vector3(x_speed, y_speed, 0), Vector3(0, 0, angular_speed))
 
+            publisher.publish(odom)
+
             speed = odometer.get_linear_speed()
-            angle = odometer.get_current_angle()
+            angle = odometer.angular_integration(angular_speed)
             angular_speed = odometer.get_angular_speed()
-            current_position = odometer.get_current_position()
+            current_position = odometer.linear_speed_integration(x_speed, y_speed)
             x_speed = speed * math.cos(angle)
             y_speed = speed * math.sin(angle)
-
-            publisher.publish(odom)
 
             rate.sleep()
 

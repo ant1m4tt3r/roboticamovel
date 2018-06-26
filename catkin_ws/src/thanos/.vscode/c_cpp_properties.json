@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/indigo/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/src/led_blinker/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/src/thanos/include",
+        "/home/hugo/UFOP_Ubuntu/robotica_movel/repo/catkin_ws/src/thanos2/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}
