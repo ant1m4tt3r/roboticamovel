@@ -1,6 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # pylint: disable=C0321, C0103, C0111, E1101, W0621, I0011
-# encoding: UTF-8
 
 import math
 import rospy
@@ -8,7 +8,6 @@ import tf
 from std_msgs.msg import Float64
 from nav_msgs.msg import Odometry
 from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
-
 
 
 class Odometer():
@@ -22,35 +21,35 @@ class Odometer():
         self.right_wheel_speed = 0
         self.left_wheel_speed = 0
         self.current_angle = 0
-        self.current_position = []
+        self.current_position = [0, 0]
 
-    def right_encoder_callback(msg):
+    def right_encoder_callback(self, msg):
         self.right_wheel_speed = msg.data
 
-    def left_encoder_callback(msg):
+    def left_encoder_callback(self, msg):
         self.left_wheel_speed = msg.data
 
-    def get_current_angle():
+    def get_current_angle(self):
         return self.current_angle
 
-    def get_current_position():
+    def get_current_position(self):
         return self.current_position
 
     # w = (right_wheel_speed + left_wheel_speed) * wheel_radius /
-    def get_angular_speed():
+    def get_angular_speed(self):
         return (self.right_wheel_speed + self.left_wheel_speed) * self.__wheel_radius / self.__wheels_dist
 
     # v = (right_wheel_speed + left_wheel_speed) * wheel_radius / 2
-    def get_linear_speed():
+    def get_linear_speed(self):
         return (self.right_wheel_speed + self.left_wheel_speed) * self.__wheel_radius / 2.0
 
-    def angular_integration(old_angular_speed):
+    def angular_integration(self, old_angular_speed):
         self.current_angle = (self.get_angular_speed()
                               + old_angular_speed) * self.__sample_time / 2.0
 
         return self.current_angle
 
-    def linear_speed_integration(old_x_speed, old_y_speed):
+    def linear_speed_integration(self, old_x_speed, old_y_speed):
         x_speed = self.get_linear_speed() * math.cos(self.current_angle)
         y_speed = self.get_linear_speed() * math.sin(self.current_angle)
 
@@ -107,11 +106,12 @@ if __name__ == '__main__':
             speed = odometer.get_linear_speed()
             angle = odometer.angular_integration(angular_speed)
             angular_speed = odometer.get_angular_speed()
-            current_position = odometer.linear_speed_integration(x_speed, y_speed)
+            current_position = odometer.linear_speed_integration(
+                x_speed, y_speed)
             x_speed = speed * math.cos(angle)
             y_speed = speed * math.sin(angle)
 
             rate.sleep()
 
-    except rospy.ROSInterruptException()
+    except rospy.ROSInterruptException():
         pass
