@@ -13,15 +13,15 @@ from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
 class Odometer():
 
     def __init__(self):
-        self.rate = rospy.get_param("~RATE", 3)
-        self.__sample_time = 1 / self.rate
+        self.rate = rospy.get_param("~RATE", 3.0)
+        self.__sample_time = 1.0 / self.rate
         self.__wheel_radius = rospy.get_param("~RAIO_DAS_RODAS", 3.3)
         self.__wheels_dist = rospy.get_param("~DIST_ENTRE_RODAS", 14.6)
-        self.linear_desloc = 0
-        self.right_wheel_speed = 0
-        self.left_wheel_speed = 0
-        self.current_angle = 0
-        self.current_position = [0, 0]
+        self.linear_desloc = 0.0
+        self.right_wheel_speed = 0.0
+        self.left_wheel_speed = 0.0
+        self.current_angle = 0.0
+        self.current_position = [0.0, 0.0]
 
     def right_encoder_callback(self, msg):
         self.right_wheel_speed = msg.data

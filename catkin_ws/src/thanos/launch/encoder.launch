@@ -27,5 +27,13 @@
         DIST_ENTRE_RODAS: 14.6
         </rosparam>
     </node>
+    <node pkg="thanos" type="controleRodas.py" name="rodas"  output="screen">
+        <rosparam>         
+        vmax1: 120
+        vmax2: 120
+        l: 7.3
+        r: 3.3
+        </rosparam>
+    </node>
 </launch>
 
