@@ -1,38 +1,38 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="thanos" type="encoder_node.py" name="leitura_encoder_esquerdo" output="screen" >
-        <rosparam>
-        NUMERO_FAIXAS_ENCODER: 20
-        PINO_ENCODER: 7
-        PINO_PONTE_H: 13
-        RATE: 3 <!--Taxa de amostragem ROS -->
-        ALPHA: 4 <!--Intensidade do filtro -->
-        TOPIC_VEL: "right_wheel_speed" 
-        </rosparam >
-    </node>
-     <node pkg="thanos" type="encoder_node.py" name="leitura_encoder_direito" output="screen" >
+    <node pkg="thanos" type="encoder_node.py" name="right_encoder_node" output="screen" >
         <rosparam>
         NUMERO_FAIXAS_ENCODER: 20
         PINO_ENCODER: 11
-        PINO_PONTE_H: 16
-        RATE: 3 <!--Taxa de amostragem ROS -->
-        ALPHA: 4 <!--Intensidade do filtro -->
-        TOPIC_VEL: "left_wheel_speed" 
+        RATE: 15 <!--Taxa de amostragem ROS -->
+        TOPIC_VEL: "right_wheel_encoder" 
+        FILTER_FACTOR: 0.5 <!--Intensidade do filtro -->
         </rosparam >
     </node>
-    <node pkg="thanos" type="odometry_node.py" name="odometro" output="screen">
+    <node pkg="thanos" type="encoder_node.py" name="left_encoder_node" output="screen" >
         <rosparam>
-        RATE: 3
-        RAIO_DAS_RODAS: 33
-        DIST_ENTRE_RODAS: 14.6
+        NUMERO_FAIXAS_ENCODER: 20
+        PINO_ENCODER: 7
+        RATE: 15 <!--Taxa de amostragem ROS -->
+        TOPIC_VEL: "left_wheel_encoder"
+        FILTER_FACTOR: 0.5 <!--Intensidade do filtro --> 
+        </rosparam >
+    </node>
+    <node pkg="thanos" type="odometry_node.py" name="odometry_node" output="screen">
+        <rosparam>
+        RATE: 15
+        RAIO_DAS_RODAS: 0.033
+        DIST_ENTRE_RODAS: 0.146
         </rosparam>
     </node>
-    <node pkg="thanos" type="controleRodas.py" name="rodas"  output="screen">
-        <rosparam>         
-        vmax1: 120
-        vmax2: 120
-        l: 7.3
-        r: 3.3
+    <node pkg="thanos" type="motor_node.py" name="motor_node"  output="screen">
+        <rosparam>
+        RATE: 10 <!--Taxa de amostragem ROS -->
+        </rosparam>
+    </node>
+    <node pkg="thanos" type="position_controller.py" name="position_controller"  output="screen">
+        <rosparam>
+        RATE: 40 <!--Taxa de amostragem ROS -->
         </rosparam>
     </node>
 </launch>
